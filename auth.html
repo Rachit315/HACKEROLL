@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3FA2F6',
+                        secondary: '#FAFFAF',
+                        background: '#1a1a2e',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-white min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl bg-black bg-opacity-50 rounded-3xl shadow-2xl overflow-hidden">
+        <div class="md:flex">
+            <div class="md:w-1/2 p-8">
+                <h2 class="text-3xl font-bold mb-6">Welcome to HACKEROLL</h2>
+                <div class="mb-6">
+                    <div class="flex border-b border-gray-300">
+                        <button class="flex-1 py-2 px-4 text-center focus:outline-none login-tab active" onclick="switchTab('login')">Login</button>
+                        <button class="flex-1 py-2 px-4 text-center focus:outline-none signup-tab" onclick="switchTab('signup')">Sign Up</button>
+                    </div>
+                </div>
+                <form id="loginForm" class="space-y-4">
+                    <div class="space-y-2">
+                        <label for="login-email" class="block">Email</label>
+                        <input id="login-email" type="email" placeholder="m@example.com" class="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="login-password" class="block">Password</label>
+                        <input id="login-password" type="password" class="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-2 rounded-md hover:bg-opacity-90 transition duration-300">Login</button>
+                </form>
+                <form id="signupForm" class="space-y-4 hidden">
+                    <div class="space-y-2">
+                        <label for="signup-name" class="block">Name</label>
+                        <input id="signup-name" type="text" placeholder="John Doe" class="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="signup-email" class="block">Email</label>
+                        <input id="signup-email" type="email" placeholder="m@example.com" class="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="signup-password" class="block">Password</label>
+                        <input id="signup-password" type="password" class="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-2 rounded-md hover:bg-opacity-90 transition duration-300">Sign Up</button>
+                </form>
+            </div>
+            <div class="md:w-1/2 bg-primary p-8 flex flex-col justify-center space-y-6">
+                <h3 class="text-2xl font-bold">Unlock Your Coding Potential</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-code text-xl"></i>
+                        <span>Master multiple programming languages</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-brain text-xl"></i>
+                        <span>Personalized learning paths</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-rocket text-xl"></i>
+                        <span>Interactive coding challenges</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-lock text-xl"></i>
+                        <span>Secure and free platform</span>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold mb-2">Featured Languages:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-white bg-opacity-20 rounded text-sm">Python</span>
+                        <span class="px-2 py-1 bg-white bg-opacity-20 rounded text-sm">JavaScript</span>
+                        <span class="px-2 py-1 bg-white bg-opacity-20 rounded text-sm">C++</span>
+                        <span class="px-2 py-1 bg-white bg-opacity-20 rounded text-sm">Java</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const loginTab = document.querySelector('.login-tab');
+            const signupTab = document.querySelector('.signup-tab');
+
+            if (tab === 'login') {
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                loginTab.classList.add('active');
+                signupTab.classList.remove('active');
+            } else {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+                loginTab.classList.remove('active');
+                signupTab.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
